@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Secure Image Vault</title>
+    <link rel="stylesheet" href="farman.css" />
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- Upload Card -->
+        <section class="container animate-float">
+            <h1>Secure Image Vault</h1>
+            <p class="subtitle">
+                A calm, private place for what matters to you.
+            </p>
+
+            <form id="uploadForm" novalidate>
+
+                <label>Full Name</label>
+                <input type="text" id="nameInput" placeholder="Enter your full name" required />
+                <small id="nameError" class="error-text hidden">
+                    Only letters are allowed. Numbers are not permitted.
+                </small>
+
+                <label>Upload Image</label>
+                <input type="file" id="image" accept="image/*" required />
+
+                <!-- Preview -->
+                <div id="previewWrapper" class="preview-wrapper hidden">
+                    <div class="blur-bg" id="blurBg"></div>
+                    <img id="previewImage" class="preview-image" />
+                </div>
+
+                <!-- Progress -->
+                <div id="progressBox" class="progress-box hidden">
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                    </div>
+                    <span id="progressText">0%</span>
+                </div>
+
+                <!-- ✅ PRIVACY ACCEPT – CORRECT POSITION -->
+                <div class="privacy-box">
+                    <input type="checkbox" id="acceptPolicy" required />
+                    <label for="acceptPolicy">
+                        I have read and agree to the <a href="#privacy">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit">
+                    <span id="btnText">Upload Securely</span>
+                    <span id="loader" class="loader hidden"></span>
+                </button>
+
+            </form>
+        </section>
+
+        <!-- Uploads -->
+        <section class="uploads-section animate-in">
+            <h2>Your Uploaded Images</h2>
+            <p class="uploads-sub">
+                Only visible to you. Stored securely.
+            </p>
+            <div id="uploadsGrid" class="uploads-grid"></div>
+        </section>
+
+        <!-- 🔐 FULL PRIVACY POLICY (NOT REMOVED) -->
+        <section id="privacy" class="policy-section">
+            <h2>Your Privacy, Explained Simply</h2>
+
+            <div class="policy-card">
+                <h3>🧠 You Are in Control</h3>
+                <p>
+                    We collect only what you choose to share.
+                    There is no hidden tracking, no background access,
+                    and nothing happens without your action.
+                </p>
+            </div>
+
+            <div class="policy-card">
+                <h3>🔒 Your Data Is Not a Product</h3>
+                <p>
+                    Your images are never sold, shared, or used for advertising.
+                    They are stored only to serve you — not to profit from you.
+                </p>
+            </div>
+
+            <div class="policy-card">
+                <h3>🇮🇳 Protected by Indian Law</h3>
+                <p>
+                    Under Article 21 of the Constitution of India and the
+                    Justice K.S. Puttaswamy judgment (2017),
+                    privacy is your fundamental right.
+                </p>
+            </div>
+
+            <div class="policy-card">
+                <h3>🗑️ Your Right to Leave</h3>
+                <p>
+                    You can request deletion of your data at any time.
+                    No questions asked. No resistance.
+                </p>
+            </div>
+
+            <p class="policy-footer">
+                Trust is built when people feel safe — not trapped.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- ✅ FOOTER: GMAIL LOGO ONLY -->
+    <footer class="footer">
+        <a href="mailto:farmanshafi2007@gmail.com" aria-label="Email me">
+            <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" alt="Gmail" class="gmail-icon" />
+        </a>
+    </footer>
+
+    <script>
+        /* Name validation */
+        const nameInput = document.getElementById("nameInput");
+        const nameError = document.getElementById("nameError");
+
+        nameInput.addEventListener("input", () => {
+            const valid = /^[A-Za-z\s]*$/.test(nameInput.value);
+            nameError.classList.toggle("hidden", valid);
+        });
+    </script>
+
+</body>
+
+</html>
